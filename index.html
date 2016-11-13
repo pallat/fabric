@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="fabric.min.js"></script>
+</head>
+
+<body>
+
+<canvas id="myCanvas" width="800" height="600" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.</canvas>
+
+<script type="text/javascript">
+var canvas = new fabric.Canvas('myCanvas');
+
+var gridsize = 5;
+for(var x=1;x<(canvas.width/gridsize);x++)
+                        {
+                            canvas.add(new fabric.Line([100*x, 0, 100*x, canvas.height],{ stroke: "#000000", strokeWidth: 1, selectable:false, strokeDashArray: [5, 5]}));
+                            canvas.add(new fabric.Line([0, 100*x, canvas.width, 100*x],{ stroke: "#000000", strokeWidth: 1, selectable:false, strokeDashArray: [5, 5]}));
+                    }
+
+
+
+var rect = new fabric.Rect({
+  width: 200, height: 200, fill: 'grey', left: (canvas.width/2)-100, top: (canvas.height/2) -100
+})
+canvas.add(rect);
+
+
+</script>
+
+</body>
+</html>
